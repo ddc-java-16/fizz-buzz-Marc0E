@@ -5,16 +5,9 @@ public class Main {
   //psvm to create this
   public static void main(String[] args) {
     for (int i = 1; i <= 100; i++) {
-      int remainder = i % 15;
-      String value = switch (remainder) {
-        case 0 -> ("fizzbuzz");
-        case 3, 6, 9, 12 -> ("fizz");
-        case 5, 10 -> ("buzz");
-        default -> //doesn't have to be the last
-            String.valueOf(i);
-      };
-
-      System.out.println(value);
+      //String value = detectFizzBuzz(i); other option to do the same as below
+      //System.out.println(value); other option to do the same as below
+      System.out.println(detectFizzBuzz(i));
 /*      boolean divisibleBy3 = (i % 3 == 0);
       boolean divisibleBy5 = (i % 5 == 0);
       if(divisibleBy3 || divisibleBy5){
@@ -31,6 +24,27 @@ public class Main {
       System.out.println(); */
 
     }
+  }
+
+  private static String detectFizzBuzz(int i) {
+    int remainder = i % 15;
+    return switch (remainder) {
+      case 0 -> ("fizzbuzz");
+      case 3, 6, 9, 12 -> ("fizz");
+      case 5, 10 -> ("buzz");
+      default -> //doesn't have to be the last
+          String.valueOf(i);
+    };
+    /*other way to do it
+        String value = switch (remainder) {
+      case 0 -> ("fizzbuzz");
+      case 3, 6, 9, 12 -> ("fizz");
+      case 5, 10 -> ("buzz");
+      default -> //doesn't have to be the last
+          String.valueOf(i);
+    };
+    return value;
+     */
   }
 
 }
