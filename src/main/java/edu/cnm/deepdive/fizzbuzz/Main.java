@@ -6,21 +6,14 @@ public class Main {
   public static void main(String[] args) {
     for (int i = 1; i <= 100; i++) {
       int remainder = i % 15;
-      String value;
+      String value = switch (remainder) {
+        case 0 -> ("fizzbuzz");
+        case 3, 6, 9, 12 -> ("fizz");
+        case 5, 10 -> ("buzz");
+        default -> //doesn't have to be the last
+            String.valueOf(i);
+      };
 
-      switch (remainder) {
-        case 0:
-          value = ("fizzbuzz");
-          break;
-        case 3, 6, 9, 12:
-          value = ("fizz");
-          break;
-        case 5, 10:
-          value = ("buzz");
-          break;
-        default: //doesn't have to be the last
-          value = String.valueOf(i);
-      }
       System.out.println(value);
 /*      boolean divisibleBy3 = (i % 3 == 0);
       boolean divisibleBy5 = (i % 5 == 0);
